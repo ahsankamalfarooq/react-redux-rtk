@@ -1,8 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAction, createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   points: 13,
 }
+
+const incrementByAmount = createAction('account/incrementByAmount')
+
 export const bonusSlice = createSlice({
   name: 'bonus',
   initialState,
@@ -19,8 +22,22 @@ export const bonusSlice = createSlice({
     //   state.value += action.payload
     // },
   },
+
+  //EXTRA REDUCER HELP TO CONNECT OTHER FILE REDUCERS INTO ANOTHER FILE
+  extraReducers: (builder) => {
+    builder
+    .addCase(incrementByAmount, (state, action) =>{
+      if(action.payload >=100) {
+        state.points+= 1;
+      } 
+      // else{
+      
+      // }
+    })
+  }
+
 })
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = bonusSlice.actions
+export const { increment, decrement } = bonusSlice.actions
 
 export default bonusSlice.reducer
