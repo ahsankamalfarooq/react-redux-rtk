@@ -10,8 +10,8 @@ export const getUserAccount = createAsyncThunk(
   'account/getUser',
   async (userId, thunkAPI) => {
     const data = await axios.get(`http://localhost:8080/accounts/${userId}`)
-    console.log(data.amount)
-    return data.amount
+    console.log(data)
+    return data.data.amount
   }
 )
 // getUserAccount(userId)
