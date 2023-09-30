@@ -1,8 +1,12 @@
 {
   "accounts": [
     {
-      "amount": 13,
+      "amount": 12,
       "id": 1
+    },
+    {
+      "amount": 12,
+      "id": 2
     }
   ],
   "bonus": [

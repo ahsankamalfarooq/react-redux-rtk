@@ -30,7 +30,7 @@ export const adminApi = createApi({
       }), 
 
       updateAccount: builder.mutation({
-        query: (id, amount) => ({
+        query: ({id, amount}) => ({
             url : `accounts/${id}`,
             method: "PATCH",
             body: {amount}

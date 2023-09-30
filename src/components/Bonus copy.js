@@ -17,7 +17,8 @@ const [updateAccount] = useUpdateAccountMutation()
           {
             data && data.map(account => <p>{account.id} : {account.amount}
             <button onClick={()=> deleteAccount(account.id)}>Delete Account +</button>
-            <button onClick={()=> updateAccount(account.id, 12)}>Update Account +</button>
+            {/* we do like this ({id:account.id, amount:12})} cuz of the documentation of redux */}
+            <button onClick={()=> updateAccount({id:account.id, amount:12})}>Update Account +</button>
 
             </p>)
 
