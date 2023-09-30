@@ -2,7 +2,7 @@ import { useAddAccountsMutation, useUpdateAccountMutation ,useGetAccountsQuery, 
 
 function Admin () {
 
-const {data, error, isLoading} = useGetAccountsQuery()
+const {data, error, isLoading, isSuccess} = useGetAccountsQuery()
 
 const [addAccount, response] = useAddAccountsMutation()
 const [deleteAccount] = useDeleteAccountMutation()
@@ -14,7 +14,8 @@ const [updateAccount] = useUpdateAccountMutation()
           <h2>
               <b>Admin Component</b>
           </h2>
-          {
+          {isLoading? <p>Loading ...</p>: null}
+          {isSuccess &&
             data && data.map(account => <p>{account.id} : {account.amount}
             <button onClick={()=> deleteAccount(account.id)}>Delete Account +</button>
             {/* we do like this ({id:account.id, amount:12})} cuz of the documentation of redux */}
